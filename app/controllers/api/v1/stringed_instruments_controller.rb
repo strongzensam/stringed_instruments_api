@@ -9,8 +9,12 @@ class Api::V1::StringedInstrumentsController < ApplicationController
   end
 
   def create
-    @stringed_instrument = StringedInstrument.create(name: params[:name], number_of_strings: params[:number_of_strings])
-    render :show
+    @stringed_instrument = StringedInstrument.new(name: params[:name], tuning: params[:tuning], number_of_strings: params[:number_of_strings], body_type: params[:body_type])
+    
+    if @stringed_instrument.save
+      render json: @stringed_instrument
+    end
+
   end
 
   def edit

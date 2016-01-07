@@ -1,1 +1,32 @@
 <h1>Index</h1>
+<div ng-app="app">
+  <div ng-controller="stringedInstrumentCtrl"ng-init="setup()">
+  <p ng-repeat="stringedInstrument in stringedInstruments">{{stringedInstrument.name}}</p>  
+  <hr>
+  <div>
+    Add Stringed Instrument:
+    <br>
+    <div>
+      Name: <input ng-model="newStringedInstrument.name">
+    </div>
+    <br>
+    <div>
+      Number of strings: <input ng-model="newStringedInstrument.number_of_strings">
+    </div>
+    <br>
+    <div>
+      Tuning: <input ng-model="newStringedInstrument.tuning">
+    </div>
+    <br>
+    <div>
+      Fretless: <input type="checkbox" ng-model="newStringedInstrument.fretless">
+    </div> 
+    <br>
+    <div>
+      Body Type: <input ng-model="newStringedInstrument.body_type">
+    </div>
+    <br>
+    <button ng-click="addStringedInstrument(newStringedInstrument)">Add New Stringed Instrument</button>
+  </div>
+  </div>
+</div>
