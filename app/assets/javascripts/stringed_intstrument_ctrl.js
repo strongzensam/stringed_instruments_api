@@ -23,5 +23,26 @@
         console.log("happy");
       });
     }
+
+    $scope.toggleOrder = function(attribute){
+      if(attribute === $scope.orderAttribute){
+        $scope.direction = !$scope.direction;
+      } else {
+        $scope.direction = false;
+      }
+      $scope.orderAttribute = attribute;
+    }
+
+
+    // $scope.lookup = function(stringedInstrumentName){
+    //   var arr = stringedInstrumentName.split("")
+    //   for(var i = 0; i = arr.length; i++){
+    //     if($scope.stringedInstruments.indexOf(arr[i]) === $scope.stringedInstruments.name){
+    //       return $scope.stringedInstruments.name;
+    //     }
+    //   }
+    // }
+
+    window.$scope = $scope
   });
 }());

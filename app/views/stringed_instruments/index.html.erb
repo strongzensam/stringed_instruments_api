@@ -1,8 +1,20 @@
 <h1>Index</h1>
 <div ng-app="app">
   <div ng-controller="stringedInstrumentCtrl"ng-init="setup()">
-  <p ng-repeat="stringedInstrument in stringedInstruments">{{stringedInstrument.name}}</p>  
+  <input ng-model="filter"list="names"ng-keyup="console.log('yes')">
+  <table>
+  <th ng-click="toggleOrder('name')">Name</th>
+  <th ng-click="toggleOrder('number_of_strings')">Number of Strings</th>
+  <tr ng-repeat="stringedInstrument in stringedInstruments | filter: filter | orderBy:orderAttribute:direction">
+    <td>{{stringedInstrument.name}}</td>
+    <td>{{stringedInstrument.number_of_strings}}</td>
+  </tr>
+  
+  </table>  
   <hr>
+<datalist id="names">
+  <option ng-repeat="stringedInstrument in stringedInstruments">{{stringedInstrument.name}}</option>
+</datalist>
   <div>
     Add Stringed Instrument:
     <br>

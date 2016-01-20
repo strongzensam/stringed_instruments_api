@@ -29,7 +29,6 @@ class Api::V1::StringedInstrumentsController < ApplicationController
   def destroy
     StringedInstrument.find(params[:id]).destroy
     format.json render json: "Instrument Deleted"
-  
   end
 
 end
